@@ -277,24 +277,24 @@
                             <div class="exercise">
                                 <h2><span class="exercise-num">0</span> Ligne simple</h2>
                                 <p class="exercise-desc">
-                                    Une simple boucle qui affiche une ligne d'étoiles. C'est l'exercice de base pour comprendre 
+                                    Une simple boucle qui affiche une ligne de dinosaures. C'est l'exercice de base pour comprendre 
                                     comment fonctionnent les boucles : initialisation, condition, et incrémentation.
                                 </p>
-                                <div class="output-box"><pre><% for (int i = 1; i <= cpt; i++) { %>*<% } %></pre></div>
+                                <div class="output-box"><pre><% for (int i = 1; i <= cpt; i++) { %>🦖<% } %></pre></div>
                             </div>
 
                             <!-- Exercice 1: Carré -->
                             <div class="exercise">
-                                <h2><span class="exercise-num">1</span> Le carré d'étoiles</h2>
+                                <h2><span class="exercise-num">1</span> Le carré de dinosaures</h2>
                                 <p class="exercise-desc">
-                                    Utilisez deux boucles imbriquées pour créer un carré. La première boucle (externe) gère les lignes, 
+                                    Utilisez deux boucles imbriquées pour créer un carré de petits dinos. La première boucle (externe) gère les lignes, 
                                     tandis que la seconde (interne) gère les colonnes. C'est une excellente introduction aux boucles imbriquées!
                                 </p>
                                 <div class="output-box">
                                     <%
                                         for (int i = 0; i < cpt; i++) {
                                             for (int j = 0; j < cpt; j++) {
-                                                out.print("* ");
+                                                out.print("🦖 ");
                                             }
                                             out.print("<br>");
                                         }
@@ -304,16 +304,16 @@
 
                             <!-- Exercice 2: Triangle croissant -->
                             <div class="exercise">
-                                <h2><span class="exercise-num">2</span> Triangle rectangle croissant</h2>
+                                <h2><span class="exercise-num">2</span> Armée de dinosaures croissante 🦖</h2>
                                 <p class="exercise-desc">
-                                    Créez un triangle qui grandit progressivement. La boucle externe augmente le nombre d'étoiles à chaque itération, 
-                                    tandis que la boucle interne affiche le bon nombre d'étoiles pour cette ligne.
+                                    Créez une armée de dinosaures qui grandit progressivement. La boucle externe augmente le nombre de dinos à chaque itération, 
+                                    tandis que la boucle interne affiche le bon nombre de dinos pour cette ligne. Préparez-vous à l'invasion!
                                 </p>
                                 <div class="output-box">
                                     <%
                                         for (int i = 1; i <= cpt; i++) {
                                             for (int j = 1; j <= i; j++) {
-                                                out.print("*");
+                                                out.print("🦖");
                                             }
                                             out.print("<br>");
                                         }
@@ -323,16 +323,16 @@
 
                             <!-- Exercice 3: Triangle décroissant -->
                             <div class="exercise">
-                                <h2><span class="exercise-num">3</span> Triangle rectangle décroissant</h2>
+                                <h2><span class="exercise-num">3</span> Retraite des dinosaures 🏃</h2>
                                 <p class="exercise-desc">
-                                    L'inverse du triangle précédent! Cette fois, la boucle externe commence par le maximum et décrémente. 
+                                    L'inverse du triangle précédent! L'armée de dinosaures bâtit en retraite. Cette fois, la boucle externe commence par le maximum et décrémente. 
                                     Observez comment changer la direction de la boucle crée un triangle inversé.
                                 </p>
                                 <div class="output-box">
                                     <%
                                         for (int i = cpt; i >= 1; i--) {
                                             for (int j = 1; j <= i; j++) {
-                                                out.print("*");
+                                                out.print("🦖");
                                             }
                                             out.print("<br>");
                                         }
@@ -342,10 +342,10 @@
 
                             <!-- Exercice 4: Triangle aligné à droite (espaces doubles) -->
                             <div class="exercise">
-                                <h2><span class="exercise-num">4</span> Triangle aligné à droite (grands espaces)</h2>
+                                <h2><span class="exercise-num">4</span> Formation pyramidale (côté droit)</h2>
                                 <p class="exercise-desc">
-                                    Alignez le triangle à droite en ajoutant des espaces avant les étoiles. La première boucle interne ajoute 
-                                    des espaces pour l'alignement, la deuxième ajoute les étoiles. Astuce: nous utilisons <code>&amp;nbsp;</code> 
+                                    Alignez les dinosaures en pyramide sur la droite. La première boucle interne ajoute 
+                                    des espaces pour l'alignement, la deuxième ajoute les dinosaures. Astuce: nous utilisons <code>&amp;nbsp;</code> 
                                     pour les espaces HTML.
                                 </p>
                                 <div class="output-box">
@@ -355,7 +355,7 @@
                                                 out.print("&nbsp;");
                                             }
                                             for (int j = 1; j <= i; j++) {
-                                                out.print("*");
+                                                out.print("🦖");
                                             }
                                             out.print("<br>");
                                         }
@@ -365,10 +365,10 @@
 
                             <!-- Exercice 5: Triangle isocèle -->
                             <div class="exercise">
-                                <h2><span class="exercise-num">5</span> Triangle isocèle</h2>
+                                <h2><span class="exercise-num">5</span> Sapin de Noël des dinos 🎄</h2>
                                 <p class="exercise-desc">
-                                    Créez un triangle isocèle (centré) avec moins d'espaces. Similaire à l'exercice précédent, 
-                                    mais avec un espacement plus réduit, créant un triangle plus élancé et symétrique.
+                                    Créez un sapin élégant avec les dinosaures (centré) avec moins d'espaces. Similaire à l'exercice précédent, 
+                                    mais avec un espacement plus réduit, créant un triangle plus élancé et symétrique. Ho ho ho!
                                 </p>
                                 <div class="output-box">
                                     <%
@@ -377,7 +377,7 @@
                                                 out.print("&nbsp;");
                                             }
                                             for (int j = 1; j <= i; j++) {
-                                                out.print("*");
+                                                out.print("🦖");
                                             }
                                             out.print("<br>");
                                         }
@@ -387,10 +387,10 @@
 
                             <!-- Exercice 6: Losange -->
                             <div class="exercise">
-                                <h2><span class="exercise-num">6</span> Le losange</h2>
+                                <h2><span class="exercise-num">6</span> Le losange de dinosaures 💎</h2>
                                 <p class="exercise-desc">
-                                    Combinez un triangle croissant avec un triangle décroissant pour créer un losange! 
-                                    La première partie affiche le triangle du haut, la deuxième affiche le triangle du bas inversé.
+                                    Combinez une armée croissante avec une armée décroissante pour créer un losange magnifique! 
+                                    La première partie affiche le triangle du haut, la deuxième affiche le triangle du bas inversé. C'est de l'art!
                                 </p>
                                 <div class="output-box">
                                     <%
@@ -399,7 +399,7 @@
                                                 out.print("&nbsp;");
                                             }
                                             for (int j = 1; j <= i; j++) {
-                                                out.print("*");
+                                                out.print("🦖");
                                             }
                                             out.print("<br>");
                                         }
@@ -408,7 +408,7 @@
                                                 out.print("&nbsp;");
                                             }
                                             for (int j = 1; j <= i; j++) {
-                                                out.print("*");
+                                                out.print("🦖");
                                             }
                                             out.print("<br>");
                                         }
@@ -418,15 +418,16 @@
 
                             <!-- Exercice 7: Table de multiplication -->
                             <div class="exercise">
-                                <h2><span class="exercise-num">7</span> Table de multiplication</h2>
+                                <h2><span class="exercise-num">7</span> La table de reproduction des dinosaures 🦖👨‍👩‍👧‍👦</h2>
                                 <p class="exercise-desc">
-                                    Appliquez les boucles à un cas pratique! Générez la table de multiplication pour le nombre <%= cpt %>.
-                                    Les boucles ne sont pas limitées aux motifs visuels - elles peuvent aussi résoudre des problèmes mathématiques.
+                                    Appliquez les boucles à un cas pratique! Générez le tableau de reproduction pour les dinosaures (table de multiplication).
+                                    Les boucles ne sont pas limitées aux motifs visuels - elles peuvent aussi résoudre des problèmes mathématiques! 
+                                    Attention, à ce rythme, on va avoir une explosion de dinosaures!
                                 </p>
                                 <div class="output-box">
                                     <%
                                         for (int i = 1; i <= cpt; i++) {
-                                            out.print(cpt + " × " + i + " = " + (cpt * i) + "<br>");
+                                            out.print("🦖 × " + i + " = " + (cpt * i) + " 🦖s<br>");
                                         }
                                     %>
                                 </div>
