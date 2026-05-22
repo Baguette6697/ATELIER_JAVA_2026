@@ -101,7 +101,7 @@
                     int absProche = Math.abs(procheZeroV2);
                     
                     if (absCourant < absProche) {
-                        procheZeroV2 = nmbres[i];
+                        procheZeroV2 = nombres[i]; // Fixed typo: 'nmbres' is now 'nombres'
                     } 
                     // En cas d'égalité stricte de distance (ex: -5 et 5)
                     else if (absCourant == absProche) {
