@@ -13,34 +13,78 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a4d2e 0%, #2d6a4f 50%, #40916c 100%);
+            background-attachment: fixed;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(52, 78, 65, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(40, 167, 69, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
-            background: white;
+            background: #f5f9f7;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             max-width: 800px;
             width: 100%;
             overflow: hidden;
+            position: relative;
+            z-index: 1;
+            border: 3px solid #2d6a4f;
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
+            color: #ffd60a;
             padding: 50px 40px;
             text-align: center;
+            position: relative;
+            border-bottom: 4px solid #ffd60a;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .header::before {
+            content: "🌿";
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3em;
+            opacity: 0.3;
+        }
+
+        .header::after {
+            content: "🌿";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3em;
+            opacity: 0.3;
         }
 
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 15px;
             font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
@@ -55,9 +99,10 @@
 
         .section-title {
             font-size: 1.8em;
-            color: #333;
+            color: #1b4332;
             margin-bottom: 30px;
             font-weight: 600;
+            text-align: center;
         }
 
         .exercises-grid {
@@ -67,8 +112,8 @@
         }
 
         .exercise-card {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
+            background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 100%);
+            border: 3px solid #40916c;
             border-radius: 15px;
             padding: 30px;
             transition: all 0.3s ease;
@@ -76,28 +121,53 @@
             color: inherit;
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exercise-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(64, 145, 108, 0.1) 0%, transparent 70%);
+            transition: all 0.3s ease;
         }
 
         .exercise-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
+            box-shadow: 0 15px 35px rgba(27, 67, 50, 0.3);
+            border-color: #1b4332;
+            background: linear-gradient(135deg, #a8dadc 0%, #95d5b2 100%);
+        }
+
+        .exercise-card:hover::before {
+            top: -20%;
+            right: -20%;
         }
 
         .exercise-icon {
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .exercise-card h3 {
             font-size: 1.3em;
-            color: #667eea;
+            color: #1b4332;
             margin-bottom: 10px;
             font-weight: 600;
         }
 
         .exercise-card p {
-            color: #666;
+            color: #2d6a4f;
             font-size: 0.95em;
             line-height: 1.6;
             margin-bottom: 20px;
@@ -106,28 +176,46 @@
 
         .exercise-link {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #40916c 0%, #2d6a4f 100%);
+            color: #ffd60a;
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             align-self: flex-start;
+            border: 2px solid #1b4332;
         }
 
         .exercise-link:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 20px rgba(27, 67, 50, 0.4);
+            background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+        }
+
+        .dino-gif-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(64, 145, 108, 0.1);
+            border-radius: 15px;
+            border: 2px dashed #40916c;
+        }
+
+        .dino-gif-section img {
+            max-width: 150px;
+            height: auto;
+            margin: 0 10px;
+            border-radius: 10px;
         }
 
         .footer {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
             padding: 20px 40px;
             text-align: center;
-            color: #999;
+            color: #ffd60a;
             font-size: 0.9em;
-            border-top: 1px solid #e9ecef;
+            border-top: 3px solid #40916c;
         }
 
         @media (max-width: 600px) {
@@ -146,52 +234,66 @@
             .exercises-grid {
                 grid-template-columns: 1fr;
             }
+
+            .dino-gif-section img {
+                max-width: 120px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>☕ Java Programming</h1>
-            <p>Votre page d'exercices Java : <strong>BOUVERET Clement</strong></p>
+            <h1>🦕 Java Programming 🦖</h1>
+            <p>Votre page d'exercices Java dans la jungle : <strong>BOUVERET Clement</strong></p>
+        </div>
+
+        <div class="dino-gif-section">
+            <img src="https://media.giphy.com/media/1d7c5yA1PakLYjzjYJ/giphy.gif" alt="Dino 1">
+            <img src="https://media.giphy.com/media/5Ntl5KPZQvPiIxP2yw/giphy.gif" alt="Dino 2">
         </div>
 
         <div class="content">
-            <h2 class="section-title">Liste de vos exercices</h2>
+            <h2 class="section-title">🌴 Liste de vos exercices 🌴</h2>
             
             <div class="exercises-grid">
                 <div class="exercise-card">
                     <div class="exercise-icon">🔄</div>
                     <h3>Les Boucles</h3>
-                    <p>Maîtrisez les boucles for, while et do-while. Créez des motifs, des séquences et explorez les structures de contrôle itératives.</p>
+                    <p>Maîtrisez les boucles for, while et do-while. Créez des motifs, des séquences et explorez les structures de contrôle itératives dans la jungle!</p>
                     <a href="lesboucles.jsp" class="exercise-link">Commencer →</a>
                 </div>
 
                 <div class="exercise-card">
                     <div class="exercise-icon">❓</div>
                     <h3>Les Conditions</h3>
-                    <p>Apprenez les structures conditionnelles avec if, else if, else et switch. Développez votre logique de programmation.</p>
+                    <p>Apprenez les structures conditionnelles avec if, else if, else et switch. Développez votre logique de programmation dans l'arène des dinosaures.</p>
                     <a href="lesconditions.jsp" class="exercise-link">Commencer →</a>
                 </div>
 
                 <div class="exercise-card">
                     <div class="exercise-icon">📝</div>
                     <h3>Les Chaînes de Caractères</h3>
-                    <p>Explorez les opérations sur les String, la manipulation de texte, les conversions et les méthodes importantes.</p>
+                    <p>Explorez les opérations sur les String, la manipulation de texte, les conversions et les méthodes importantes pour communiquer avec les créatures du royaume!</p>
                     <a href="leschaines.jsp" class="exercise-link">Commencer →</a>
                 </div>
 
                 <div class="exercise-card">
                     <div class="exercise-icon">📊</div>
                     <h3>Les Tableaux</h3>
-                    <p>Travaillez avec les tableaux unidimensionnels et multidimensionnels pour gérer des collections de données.</p>
+                    <p>Travaillez avec les tableaux unidimensionnels et multidimensionnels pour gérer des collections de dinosaures et autres trésors de la jungle.</p>
                     <a href="lestableaux.jsp" class="exercise-link">Commencer →</a>
                 </div>
             </div>
         </div>
 
+        <div class="dino-gif-section">
+            <img src="https://media.giphy.com/media/J8FZIm9HoBo4vGKZvz/giphy.gif" alt="Dino 3">
+            <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Dino 4">
+        </div>
+
         <div class="footer">
-            💡 Conseil: Commencez par les boucles, puis progressez vers les tableaux et autres concepts avancés.
+            🦖 Bienvenue dans la jungle du code! Que la programmation soit avec toi! 🦕
         </div>
     </div>
 </body>

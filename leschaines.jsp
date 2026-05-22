@@ -4,106 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercices sur les Chaînes de Caractères</title>
+    <title>Exercices sur les Chaînes</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a4d2e 0%, #2d6a4f 50%, #40916c 100%);
+            background-attachment: fixed;
             min-height: 100vh;
             padding: 30px 20px;
+            position: relative;
         }
-
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 10% 20%, rgba(52, 78, 65, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
+            background: #f5f9f7;
             border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
             overflow: hidden;
+            position: relative;
+            z-index: 1;
+            border: 3px solid #2d6a4f;
         }
-
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
+            color: #ffd60a;
             padding: 40px;
             text-align: center;
+            border-bottom: 4px solid #ffd60a;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
-
         .header h1 {
             font-size: 2.2em;
             margin-bottom: 10px;
             font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-
-        .header p {
-            opacity: 0.95;
-            font-size: 1em;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
+        .header p { opacity: 0.95; font-size: 1em; }
+        .content { padding: 40px; }
         .intro-box {
-            background: #f0f4ff;
-            border-left: 4px solid #667eea;
+            background: #c7f0d8;
+            border-left: 4px solid #2d6a4f;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 30px;
+            color: #1b4332;
         }
-
-        .intro-box p {
-            color: #333;
-            line-height: 1.6;
-        }
-
+        .intro-box p { line-height: 1.6; }
         .input-section {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 100%);
             padding: 25px;
             border-radius: 10px;
             margin-bottom: 30px;
-            border: 2px solid #e9ecef;
+            border: 2px solid #40916c;
         }
-
-        .input-section form {
-            display: grid;
-            gap: 15px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .input-section label {
-            font-weight: 600;
-            color: #333;
-        }
-
+        .input-section form { display: grid; gap: 15px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .input-section label { font-weight: 600; color: #1b4332; }
         .input-section input[type="text"] {
             padding: 10px 15px;
-            border: 2px solid #e9ecef;
+            border: 2px solid #40916c;
             border-radius: 8px;
             font-size: 1em;
-            transition: border-color 0.3s;
         }
-
         .input-section input[type="text"]:focus {
             outline: none;
-            border-color: #667eea;
-            background-color: #f0f4ff;
+            border-color: #1b4332;
+            background-color: #e8f5e9;
         }
-
         .input-section input[type="submit"] {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #40916c 0%, #2d6a4f 100%);
+            color: #ffd60a;
             padding: 12px 30px;
             border: none;
             border-radius: 8px;
@@ -111,50 +91,39 @@
             cursor: pointer;
             transition: transform 0.3s;
             align-self: flex-start;
+            border: 2px solid #1b4332;
         }
-
-        .input-section input[type="submit"]:hover {
-            transform: scale(1.05);
-        }
-
+        .input-section input[type="submit"]:hover { transform: scale(1.05); }
         .result-section {
-            background: #fff8f0;
+            background: #fff3cd;
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 30px;
-            border-left: 4px solid #ff9800;
+            border-left: 4px solid #40916c;
         }
-
-        .exercise-container {
-            display: grid;
-            gap: 30px;
-        }
-
+        .exercise-container { display: grid; gap: 30px; }
         .exercise {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
+            background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 100%);
+            border: 2px solid #40916c;
             border-radius: 10px;
             padding: 25px;
             transition: all 0.3s ease;
         }
-
         .exercise:hover {
-            border-color: #667eea;
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+            border-color: #1b4332;
+            box-shadow: 0 8px 20px rgba(27, 67, 50, 0.15);
         }
-
         .exercise h2 {
-            color: #667eea;
+            color: #1b4332;
             font-size: 1.4em;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
         .exercise-num {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #40916c 0%, #2d6a4f 100%);
+            color: #ffd60a;
             width: 35px;
             height: 35px;
             border-radius: 50%;
@@ -162,64 +131,46 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 0.9em;
         }
-
         .exercise-desc {
-            color: #666;
+            color: #2d6a4f;
             margin-bottom: 15px;
             line-height: 1.6;
             font-size: 0.95em;
         }
-
         .output-box {
             background: white;
-            border: 2px solid #ddd;
+            border: 2px solid #40916c;
             padding: 15px;
             border-radius: 8px;
-            color: #333;
+            color: #1b4332;
             word-break: break-word;
         }
-
-        .back-link {
-            margin-top: 30px;
-            text-align: center;
-        }
-
+        .error-box { background: #ffcccc; border-left-color: #c41e3a !important; }
+        .dino-gif { text-align: center; margin: 20px 0; }
+        .dino-gif img { max-width: 150px; height: auto; border-radius: 10px; }
+        .back-link { margin-top: 30px; text-align: center; }
         .back-link a {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #40916c 0%, #2d6a4f 100%);
+            color: #ffd60a;
             padding: 12px 30px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s;
+            border: 2px solid #1b4332;
         }
-
-        .back-link a:hover {
-            transform: scale(1.05);
-        }
-
+        .back-link a:hover { transform: scale(1.05); }
         .footer {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
             padding: 20px 40px;
             text-align: center;
-            color: #999;
+            color: #ffd60a;
             font-size: 0.85em;
-            border-top: 1px solid #e9ecef;
+            border-top: 3px solid #40916c;
         }
-
-        .error-box {
-            background: #ffebee;
-            border-left-color: #f44336 !important;
-        }
-
-        @media (max-width: 600px) {
-            .header { padding: 25px; }
-            .header h1 { font-size: 1.6em; }
-            .content { padding: 20px; }
-        }
+        @media (max-width: 600px) { .header { padding: 25px; } .header h1 { font-size: 1.6em; } .content { padding: 20px; } }
     </style>
 </head>
 <body>
@@ -227,6 +178,10 @@
         <div class="header">
             <h1>📝 Exercices sur les Chaînes</h1>
             <p>Manipulez le texte comme les dinosaures! 🦖</p>
+        </div>
+
+        <div class="dino-gif">
+            <img src="https://media.giphy.com/media/1d7c5yA1PakLYjzjYJ/giphy.gif" alt="Dino">
         </div>
 
         <div class="content">
@@ -254,24 +209,21 @@
                 <% } else { %>
 
                     <div class="result-section">
-                        <p><strong>✓ Analyse de base :</strong></p>
+                        <p><strong>✓ Analyse :</strong></p>
                         <% int longueurChaine = chaine.length(); %>
-                        <p>🦖 Votre armée compte <strong><%= longueurChaine %></strong> dinosaures (caractères)</p>
+                        <p>🦖 Votre armée compte <strong><%= longueurChaine %></strong> dinosaures</p>
                         <% char caractereExtrait = chaine.charAt(2); %>
                         <p>🦖 Le 3ème dinosaure est : <strong><%= caractereExtrait %></strong></p>
                         <% String sousChaine = chaine.substring(2, Math.min(6, chaine.length())); %>
-                        <p>🦖 Une sous-armée (3ème au 6ème) : <strong><%= sousChaine %></strong></p>
-                        <% int position = chaine.toLowerCase().indexOf('e'); %>
-                        <p>🦖 Première lettre 'e' à la position : <strong><%= position >= 0 ? position : "introuvable!" %></strong></p>
+                        <p>🦖 Une sous-armée : <strong><%= sousChaine %></strong></p>
                     </div>
 
                     <div class="exercise-container">
                         <div class="exercise">
-                            <h2><span class="exercise-num">1</span> L'invasion des petits E 🦗</h2>
+                            <h2><span class="exercise-num">1</span> Les petits E 🦗</h2>
                             <p class="exercise-desc">Comptez les 'e' (minuscules et majuscules).</p>
                             <div class="output-box">
-                                <%
-                                    int nbE = 0;
+                                <% int nbE = 0;
                                     for (int i = 0; i < chaine.length(); i++) {
                                         if (chaine.charAt(i) == 'e' || chaine.charAt(i) == 'E') nbE++;
                                     }
@@ -284,11 +236,9 @@
                             <h2><span class="exercise-num">2</span> Armée Verticale 📊</h2>
                             <p class="exercise-desc">Chaque caractère sur une nouvelle ligne!</p>
                             <div class="output-box">
-                                <%
-                                    for (int i = 0; i < chaine.length(); i++) {
-                                        out.print("🦖 " + chaine.charAt(i) + "<br>");
-                                    }
-                                %>
+                                <% for (int i = 0; i < chaine.length(); i++) {
+                                    out.print("🦖 " + chaine.charAt(i) + "<br>");
+                                } %>
                             </div>
                         </div>
 
@@ -296,16 +246,14 @@
                             <h2><span class="exercise-num">3</span> Escadrons 🎖️</h2>
                             <p class="exercise-desc">Chaque espace = saut de ligne. Les dinosaures se regroupent!</p>
                             <div class="output-box">
-                                <%
-                                    for (int i = 0; i < chaine.length(); i++) {
-                                        char c = chaine.charAt(i);
-                                        if (c == ' ') {
-                                            out.print("<br>--- ESCADRON ---<br>");
-                                        } else {
-                                            out.print(c);
-                                        }
+                                <% for (int i = 0; i < chaine.length(); i++) {
+                                    char c = chaine.charAt(i);
+                                    if (c == ' ') {
+                                        out.print("<br>--- ESCADRON ---<br>");
+                                    } else {
+                                        out.print(c);
                                     }
-                                %>
+                                } %>
                             </div>
                         </div>
 
@@ -314,11 +262,9 @@
                             <p class="exercise-desc">Une lettre sur deux. Les dinosaures avancent par paires!</p>
                             <div class="output-box">
                                 <p><strong>
-                                    <%
-                                        for (int i = 0; i < chaine.length(); i += 2) {
-                                            out.print(chaine.charAt(i));
-                                        }
-                                    %>
+                                    <% for (int i = 0; i < chaine.length(); i += 2) {
+                                        out.print(chaine.charAt(i));
+                                    } %>
                                 </strong></p>
                             </div>
                         </div>
@@ -328,11 +274,9 @@
                             <p class="exercise-desc">Le texte à l'envers! Les dinosaures battent en retraite!</p>
                             <div class="output-box">
                                 <p><strong>
-                                    <%
-                                        for (int i = chaine.length() - 1; i >= 0; i--) {
-                                            out.print(chaine.charAt(i));
-                                        }
-                                    %>
+                                    <% for (int i = chaine.length() - 1; i >= 0; i--) {
+                                        out.print(chaine.charAt(i));
+                                    } %>
                                 </strong></p>
                             </div>
                         </div>
@@ -341,8 +285,7 @@
                             <h2><span class="exercise-num">6</span> Classification 📋</h2>
                             <p class="exercise-desc">Voyelles vs Consonnes. Chaque type de dinosaure a son rôle!</p>
                             <div class="output-box">
-                                <%
-                                    int voyelles = 0, consonnes = 0;
+                                <% int voyelles = 0, consonnes = 0;
                                     String chaineMinuscule = chaine.toLowerCase();
                                     for (int i = 0; i < chaineMinuscule.length(); i++) {
                                         char c = chaineMinuscule.charAt(i);
@@ -365,7 +308,7 @@
 
                 <% } %>
             <% } else { %>
-                <div class="intro-box" style="background: #e3f2fd; border-left-color: #2196F3;">
+                <div class="intro-box" style="background: #e8f5e9;">
                     <p><strong>💡 Conseil:</strong> Entrez une phrase pour voir les dinosaures s'organiser!</p>
                 </div>
             <% } %>
@@ -376,7 +319,7 @@
         </div>
 
         <div class="footer">
-            💡 Les chaînes sont des tableaux de lettres - manipulez-les avec sagesse!
+            🦖 Les chaînes sont des tableaux de lettres - manipulez-les avec sagesse! 🦕
         </div>
     </div>
 </body>
