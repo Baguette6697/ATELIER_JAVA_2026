@@ -28,12 +28,17 @@
 <h2>Exercice 1 : Le carré d'étoiles</h2>
 <p>Ecrire le code afin de produire un carré d'étoile</p>
 
-for (int i = 0; i < valeur; i++) {
-    for (int j = 0; j < valeur; j++) {
-        System.out.print("* ");
+<%
+    // This opens the Java scriptlet. 
+    // It assumes 'valeur' was already defined as an int higher up in another <% %> block.
+
+    for (int i = 0; i < valeur; i++) {
+        for (int j = 0; j < valeur; j++) {
+            out.print("* "); // Prints to the web page
+        }
+        out.print("<br>"); // HTML line break to start the next row of the square
     }
-    System.out.println(); // Moves to the next line after printing a row
-}
+%>
 
 
 <h2>Exercice 2 : Triangle rectangle gauche</h2>
